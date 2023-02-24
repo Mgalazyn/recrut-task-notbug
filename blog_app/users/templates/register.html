@@ -1,0 +1,29 @@
+{% load static %}
+{% block content%}
+
+<h3>Account Sign Up</h3>
+        <p>Create a new account</p>
+      </div>
+
+      <form method="POST" action="{% url 'register' %}" class="form auth__form">
+        {% csrf_token%}
+        <!-- Input:Text -->
+
+        {% for field in form %}
+
+        <div class="form__field">
+          <label for="formInput#text"> {{field.label}} </label>
+          {{field}}
+        
+        {% endfor %}
+        </div>
+        <div class="auth__actions">
+            <input class="btn btn--sub btn--lg" type="submit" value="Sign  In" />
+        </div>
+        </form>
+        <div class="auth__alternative">
+          <p>Already have an Account?</p>
+          <a href="{% url 'login' %}">Log In</a>
+        </div>
+
+{% endblock content %} 

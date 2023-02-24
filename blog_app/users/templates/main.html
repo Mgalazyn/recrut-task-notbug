@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> NotBug - BlogAPP</title>
+        <h1> Hi, this is my solution for Django - blog app <h1>
+        <h2> Please login to add entries <h2>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        {% if request.user.is_authenticated %}
+        <ul>
+            <li class='logout'> 
+                <a href="{% url 'logout' %}"> Log out </a>
+            </li>
+            <li class='Add entries'> 
+                <a href="{% url 'entry_form' %}"> Add entry </a>
+            </li>
+        </ul>
+
+        {% for entry in entries %}
+        <div class="entry">
+            <h3>Title : {{ entry.title }}</h3>
+            <p>Description of entry: </p> 
+            <p> {{ entry.description }}</p>
+            <li>Owner:  {{ entry.owner.name }}</li>
+        </div>
+        {% empty %}
+            <p>No entries found.</p>
+        {% endfor %}
+
+        {% else %}
+        <li class='login'> 
+            <a href="{% url 'login'%}"> Login/Register </a>
+        </li>
+        
+        {% endif %}
+        <script src="" async defer></script>
+
+    </body>
+</html>
