@@ -51,8 +51,9 @@ def register_user(request):
 
 
 def main(request):
-    context = {}
-    return render(request, 'main.html', context)
+    entries = Entries.objects.all()
+    print(entries)
+    return render(request, 'main.html', {'entries': entries})
 
 
 def add_entry(request):
@@ -82,9 +83,3 @@ def view_entry(request, pk):
     
     context = {'entry': entry}
     return render(request, 'entry.html', context)
-
-
-def index(request):
-    entries = Entries.objects.all()
-    print(entries)
-    return render(request, 'main.html', {'entries': entries})

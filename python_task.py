@@ -13,17 +13,12 @@ def selecting_users_from_Poland(list):
 
 
 
-
 '''Display sum of first ten elements starting from element 5:'''
 
 numbers = [1,5,2,3,1,4,1,23,12,2,3,1,2,31,23,1,2,3,1,23,1,2,3,123]
 
 def sum_of_first_10(list):
-    sum = 0
-    for x in list[4:14]:
-        sum += x
-    return sum
-
+    return sum(list[4:14])
 
 
 '''Fill list with powers of 2, n [1..20]'''
@@ -33,5 +28,3 @@ normal_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
 def fill_list_with_powers(list):
     return [x**2 for x in list]
-
-print(fill_list_with_powers(normal_list))
