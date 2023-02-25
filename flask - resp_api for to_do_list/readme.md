@@ -16,24 +16,30 @@ print(response.json())
 
 
 # Updating task
-task_id = input('select task to delete (type in: task1, task2, task3):')
+task_id = input('select task to update (type in: task1, task2, task3):')
 data = {'title': 'Buy bread (updated)', 'completed': True}
-response = requests.put(url + 'tasks/{taks_id}/update', json=data)
+response = requests.put(url + f'tasks/{task_id}/update', json=data)
+response = requests.get(url + 'tasks')
 print(response.json())
+
 
 # Delete task
 task_id = input('select task to delete (type in: task1, task2, task3):')
-response = requests.delete(url + 'tasks/{task_id}/delete')
+response = requests.delete(url + f'tasks/{task_id}/delete')
+response = requests.get(url + 'tasks')
 print(response.json())
 
+
 # Display only one task
-response = requests.get(url + 'tasks/task1')
+task_id = input('select task to display (type in: task1, task2, task3):')
+response = requests.get(url + f'tasks/{task_id}')
 print(response.json())
 
 
 # Get all tasks
 response = requests.get(url + 'tasks')
 print(response.json())
+
 # Get all tasks
 response = requests.get(url + 'tasks')
 print(response.json())
