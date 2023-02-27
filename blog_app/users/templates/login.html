@@ -6,6 +6,7 @@
 
 <form action="{% url 'login' %}" method="POST" class="form auth__form">
   {% csrf_token %}
+  
   <!-- Input:Username -->
   <div class="form__field">
     <label for="formInput#text">Username: </label>
@@ -14,7 +15,7 @@
       id="formInput#text"
       type="text"
       name="username"
-      placeholder="Enter your username..."
+      placeholder="Enter your username"
     />
   </div>
 
