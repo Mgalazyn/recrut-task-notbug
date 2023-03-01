@@ -17,4 +17,5 @@ export class HomeComponent {
       this.myData = data;
     });
   }
+  
 }
