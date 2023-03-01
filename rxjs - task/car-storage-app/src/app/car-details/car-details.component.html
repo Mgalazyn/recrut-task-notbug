@@ -1,0 +1,28 @@
+<h2>Car Details</h2>
+
+<form (ngSubmit)="saveCar()" #carForm="">
+  
+  
+  
+  <h3>Services</h3>
+
+  <ul>
+    <li *ngFor="let service of car.services">
+      {{service.part}} - ${{service.cost}}
+    </li>
+  </ul>
+
+  <div *ngIf="car.services.length === 0">
+    No services recorded.
+  </div>
+
+  <h4>Add Service</h4>
+
+  <label for="part">Part:</label>
+  
+  
+
+  <button type="button" (click)="addService()">Add Service</button>
+
+  <button type="submit">Save Car</button>
+</form>
